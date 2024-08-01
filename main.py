@@ -10,7 +10,7 @@ pygame.init()
 DS = pygame.display.set_mode(size=(1280,600))
 
 #用来加载图片
-#image = pygame.image.load("图片路径")
+image = pygame.image.load("图片的路径")
 
 #这里设置循环，是防止主程序直接运行完退出
 while 1:
