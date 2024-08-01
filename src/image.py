@@ -15,11 +15,12 @@ class Image(pygame.sprite.Sprite):
     def updateImage(self):
         path = self.pathFmt
         if self.pathIndexCount != 0:
+            #通过对路径字符串的格式化拼接，实现图片不停切换
             path = path % self.pathIndex
         # 表示在初始化image时候就会开始加载图片了，将这个方法封装了起来
         self.image = pygame.image.load(path)
         if self.size:
-            # 实现图片缩放
+            # 实现图片缩放 pygame.transform.scale实际是将图片裁剪后又返回了一个裁剪后的img，所以又赋值给image
             self.image = pygame.transform.scale(self.image, self.size)
 
     def updateSize(self,size):
@@ -40,7 +41,7 @@ class Image(pygame.sprite.Sprite):
 
     #这个函数控制僵尸从右往左走，所以是x坐标每次-1，但因为传过来的是一个元组，元组不可改变，所以在init中，将pos类型转为list
     def doLeft(self):
-        self.pos[0] -= 0.1
+        self.pos[0] -= 2.5
 
     def draw(self,ds):
         ds.blit(self.image,self.getRect())
