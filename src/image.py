@@ -43,6 +43,9 @@ class Image(pygame.sprite.Sprite):
     def doLeft(self):
         self.pos[0] -= 2.5
 
+    def doRight(self):
+        self.pos[0] += 2.5
+
     def draw(self,ds):
         ds.blit(self.image,self.getRect())
 

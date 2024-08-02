@@ -13,6 +13,10 @@ class ObjectBase(image.Image):
         self.checkImageIndex()
         self.checkPostion()
 
+    #根据此函数判断平移动画切换的时间,子类去实现，赋予返回值
+    def getProcessionCD(self):
+        pass
+
     #帧动画
     def checkImageIndex(self):
         if time.time() - self.preIndexTime <= 0.2:
@@ -25,7 +29,7 @@ class ObjectBase(image.Image):
 
     #平移动画
     def checkPostion(self):
-        if time.time() - self.prePositionTime <= 0.2:
+        if time.time() - self.prePositionTime <= self.getProcessionCD():
             return False
         self.prePositionTime = time.time()
         return True

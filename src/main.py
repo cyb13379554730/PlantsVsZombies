@@ -2,6 +2,8 @@ import sys
 
 import pygame
 from pygame.locals import *
+
+from src import peabullet
 from src.const import *
 import zombiebase
 #初始化一个pygame模块
@@ -17,6 +19,9 @@ import image
 backgroundImage = image.Image(PTAT_BACK,0,(0,0),GAME_SIZE)
 #僵尸
 zombieImage = zombiebase.ZombieBase("../imageresources/zombie/0/%d.png",0,(1100,200),(100,128),15)
+
+#豌豆子弹
+peabul = peabullet.Peabullet("../imageresources/other/peabullet.png",0,(300,250),(25,25))
 
 #这里设置循环，是防止主程序直接运行完退出
 while 1:
@@ -35,6 +40,9 @@ while 1:
 
     zombieImage.update()
     zombieImage.draw(DS)
+
+    peabul.update()
+    peabul.draw(DS)
 
     pygame.display.update()
 
