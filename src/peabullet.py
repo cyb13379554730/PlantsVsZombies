@@ -3,11 +3,9 @@ from src import objectbase
 
 class Peabullet(objectbase.ObjectBase):
 
-    def __init__(self, pathFmt, pathIndex, pos, size=None, pathIndexCount=0):
-        super().__init__(pathFmt, pathIndex, pos, size, pathIndexCount)
+    def __init__(self ,id,pos):
+        super().__init__(id,pos)
 
-    def getProcessionCD(self):
-        return 0.006
     def checkPostion(self):
         b = super(Peabullet,self).checkPostion()
         if b:

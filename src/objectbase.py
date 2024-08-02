@@ -2,12 +2,21 @@
 import time
 
 import image
+import data_object
 
 class ObjectBase(image.Image):
-    def __init__(self, pathFmt, pathIndex, pos, size=None, pathIndexCount=0):
-        super(ObjectBase,self).__init__(pathFmt, pathIndex, pos, size, pathIndexCount)
+    def __init__(self,id,pos):
+        self.id = id
         self.preIndexTime = 0
         self.prePositionTime = 0
+        super(ObjectBase,self).__init__(self.getDataSelf()["PATH"],
+                                        0,
+                                        pos,
+                                        self.getDataSelf()["SIZE"],
+                                        self.getDataSelf()["IMAGE_INDEX_MAX"])
+
+    def getDataSelf(self):
+        return data_object.data[self.id]
 
     def update(self):
         self.checkImageIndex()
@@ -15,11 +24,15 @@ class ObjectBase(image.Image):
 
     #根据此函数判断平移动画切换的时间,子类去实现，赋予返回值
     def getProcessionCD(self):
-        pass
+        return self.getDataSelf()["POSSION_CD"]
+
+    #控制帧动画每/s切换一次图片
+    def getImageIndex(self):
+        return self.getDataSelf()["IMAGE_INDEX_CD"]
 
     #帧动画
     def checkImageIndex(self):
-        if time.time() - self.preIndexTime <= 0.2:
+        if time.time() - self.preIndexTime <= self.getImageIndex():
             return
         self.preIndexTime = time.time()
         idx = self.pathIndex + 1

@@ -3,12 +3,8 @@
 import objectbase
 
 class ZombieBase(objectbase.ObjectBase):
-    def __init__(self, pathFmt, pathIndex, pos, size=None, pathIndexCount=0):
-        super(ZombieBase,self).__init__(pathFmt, pathIndex, pos, size, pathIndexCount)
-
-
-    def getProcessionCD(self):
-        return 0.2
+    def __init__(self, id,pos):
+        super(ZombieBase,self).__init__(id,pos)
 
     def checkPostion(self):
         b = super(ZombieBase,self).checkPostion()
