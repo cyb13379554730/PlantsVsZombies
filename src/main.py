@@ -7,6 +7,7 @@ from src import peabullet
 from src.const import *
 import zombiebase
 import sunlight
+import sunflower
 #初始化一个pygame模块
 pygame.init()
 
@@ -21,10 +22,20 @@ backgroundImage = image.Image(PTAT_BACK,0,(0,0),GAME_SIZE)
 #僵尸
 zombieImage = zombiebase.ZombieBase(1,(1100,200))
 #阳光
-sunlight = sunlight.SunLight(2,(250,200))
-
+sunlight = sunlight.SunLight(2,(280,200))
 #豌豆子弹
 peabul = peabullet.Peabullet(0,(300,250))
+
+#向日葵
+sunflowerList = []
+for i in range(GRID_COUNT[0]):
+    for j in range(GRID_COUNT[1]):
+        posX = LEFT_TOP[0] + i * GRID_SIZE[0]
+        posY = LEFT_TOP[1] + j * GRID_SIZE[1]
+        pos = posX,posY
+
+        sunflower1 = sunflower.SunFlower(3, pos)
+        sunflowerList.append(sunflower1)
 
 #这里设置循环，是防止主程序直接运行完退出
 while 1:
@@ -46,6 +57,10 @@ while 1:
 
     peabul.update()
     peabul.draw(DS)
+
+    for sf in sunflowerList:
+        sf.update()
+        sf.draw(DS)
 
     sunlight.update()
     sunlight.draw(DS)
