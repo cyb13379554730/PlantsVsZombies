@@ -18,6 +18,9 @@ class ObjectBase(image.Image):
     def getDataSelf(self):
         return data_object.data[self.id]
 
+    def getSpeed(self):
+        return self.getDataSelf()["SPEED"]
+
     def update(self):
         self.checkImageIndex()
         self.checkPostion()
@@ -45,6 +48,8 @@ class ObjectBase(image.Image):
         if time.time() - self.prePositionTime <= self.getProcessionCD():
             return False
         self.prePositionTime = time.time()
+        speed = self.getSpeed()
+        self.pos = (self.pos[0] + speed[0], self.pos[1] + speed[1])
         return True
         #植物不会移动，所以要让会移动的子类，实现这个功能.所以在这里让这个方法return一个布尔值
         #self.pos[0] -= 2.5

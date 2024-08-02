@@ -39,12 +39,12 @@ class Image(pygame.sprite.Sprite):
         rect.y = self.pos[1]
         return rect
 
-    #这个函数控制僵尸从右往左走，所以是x坐标每次-1，但因为传过来的是一个元组，元组不可改变，所以在init中，将pos类型转为list
-    def doLeft(self):
-        self.pos[0] -= 2.5
-
-    def doRight(self):
-        self.pos[0] += 2.5
+    # #这个函数控制僵尸从右往左走，所以是x坐标每次-1，但因为传过来的是一个元组，元组不可改变，所以在init中，将pos类型转为list
+    # def doLeft(self):
+    #     self.pos[0] -= 2.5
+    #
+    # def doRight(self):
+    #     self.pos[0] += 2.5
 
     def draw(self,ds):
         ds.blit(self.image,self.getRect())

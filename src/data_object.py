@@ -6,25 +6,28 @@
 data = {
     0:{
         "PATH" : "../imageresources/other/peabullet.png",
+        "SIZE" : (25,25),
         "IMAGE_INDEX_MAX" : 0,
         "IMAGE_INDEX_CD" : 0.0,
         "POSSION_CD" : 0.006,
-        "SIZE" : (25,25)
+        "SPEED" : (2.5,0)
     },
 
     1:{
         "PATH" : "../imageresources/zombie/0/%d.png",
         "IMAGE_INDEX_MAX" : 15,
+        "SIZE" : (100,128),
         "IMAGE_INDEX_CD" : 0.2,
         "POSSION_CD" : 0.2,
-        "SIZE" : (100,128)
+        "SPEED" : (-2.5,0)
     },
 
     2:{
         "PATH" : "../imageresources/other/sunlight/%d.png",
+        "SIZE" : (80,80),
         "IMAGE_INDEX_MAX" : 30,
-        "IMAGE_INDEX_CD" : 0.2,
-        "POSSION_CD" : 0.2,
-        "SIZE" : (300,300)
+        "IMAGE_INDEX_CD" : 0.03,
+        "POSSION_CD" : 0.08,
+        "SPEED" : (0,2)
     }
 }

@@ -6,6 +6,7 @@ from pygame.locals import *
 from src import peabullet
 from src.const import *
 import zombiebase
+import sunlight
 #初始化一个pygame模块
 pygame.init()
 
@@ -19,6 +20,8 @@ import image
 backgroundImage = image.Image(PTAT_BACK,0,(0,0),GAME_SIZE)
 #僵尸
 zombieImage = zombiebase.ZombieBase(1,(1100,200))
+#阳光
+sunlight = sunlight.SunLight(2,(250,200))
 
 #豌豆子弹
 peabul = peabullet.Peabullet(0,(300,250))
@@ -43,6 +46,9 @@ while 1:
 
     peabul.update()
     peabul.draw(DS)
+
+    sunlight.update()
+    sunlight.draw(DS)
 
     pygame.display.update()
 
