@@ -31,7 +31,14 @@ class ObjectBase(image.Image):
         self.preSumTime = time.time()
         self.preSummon()
 
+    #这个函数用来让向日葵生产阳光
     def preSummon(self):
+        pass
+
+    def hasSummon(self):
+        pass
+
+    def doSummon(self):
         pass
 
     def update(self):

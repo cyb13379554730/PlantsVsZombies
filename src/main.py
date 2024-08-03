@@ -2,39 +2,18 @@ import sys
 
 import pygame
 from pygame.locals import *
-
-from src import peabullet
 from src.const import *
-import zombiebase
-import sunlight
-import sunflower
+from game import Game
 #初始化一个pygame模块
 pygame.init()
 
 #创建一个窗口，并设置尺寸
 DS = pygame.display.set_mode(size=GAME_SIZE)
 
+game1 = Game(DS)
 #用来加载图片
 #backgroundImage = pygame.image.load("../imageresources/other/back.png")
 import image
-#背景图
-backgroundImage = image.Image(PTAT_BACK,0,(0,0),GAME_SIZE)
-#僵尸
-zombieImage = zombiebase.ZombieBase(1,(1100,200))
-
-#豌豆子弹
-peabul = peabullet.Peabullet(0,(300,250))
-
-#向日葵
-sunflowerList = []
-for i in range(GRID_COUNT[0]):
-    for j in range(GRID_COUNT[1]):
-        posX = LEFT_TOP[0] + i * GRID_SIZE[0]
-        posY = LEFT_TOP[1] + j * GRID_SIZE[1]
-        pos = posX,posY
-
-        sunflower1 = sunflower.SunFlower(3, pos)
-        sunflowerList.append(sunflower1)
 
 #这里设置循环，是防止主程序直接运行完退出
 while 1:
@@ -49,17 +28,7 @@ while 1:
 
     #将背景图片显示出来,第一个参数是图片，第二个参数是绘制的位置坐标
     #DS.blit(backgroundImage,backgroundImage.get_rect())
-    backgroundImage.draw(DS)
-
-    zombieImage.update()
-    zombieImage.draw(DS)
-
-    peabul.update()
-    peabul.draw(DS)
-
-    for sf in sunflowerList:
-        sf.update()
-        sf.draw(DS)
-
+    game1.update()
+    game1.draw()
     pygame.display.update()
 
