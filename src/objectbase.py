@@ -9,6 +9,7 @@ class ObjectBase(image.Image):
         self.id = id
         self.preIndexTime = 0
         self.prePositionTime = 0
+        self.preSumTime = 0
         super(ObjectBase,self).__init__(self.getDataSelf()["PATH"],
                                         0,
                                         pos,
@@ -21,9 +22,22 @@ class ObjectBase(image.Image):
     def getSpeed(self):
         return self.getDataSelf()["SPEED"]
 
+    def getPreSumTimeCD(self):
+        return self.getDataSelf()["SUMMON_CD"]
+
+    def checkSummon(self):
+        if time.time() - self.preSumTime <= self.getPreSumTimeCD() or self.getPreSumTimeCD() == -1:
+            return
+        self.preSumTime = time.time()
+        self.preSummon()
+
+    def preSummon(self):
+        pass
+
     def update(self):
         self.checkImageIndex()
         self.checkPostion()
+        self.checkSummon()
 
     #根据此函数判断平移动画切换的时间,子类去实现，赋予返回值
     def getProcessionCD(self):

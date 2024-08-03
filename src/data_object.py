@@ -11,6 +11,7 @@ data = {
         "IMAGE_INDEX_MAX" : 0,
         "IMAGE_INDEX_CD" : 0.0,
         "POSSION_CD" : 0.006,
+        "SUMMON_CD" : -1,
         "SPEED" : (2.5,0)
     },
 
@@ -20,6 +21,7 @@ data = {
         "SIZE" : (100,128),
         "IMAGE_INDEX_CD" : 0.2,
         "POSSION_CD" : 0.2,
+        "SUMMON_CD" : -1,
         "SPEED" : (-2.5,0)
     },
 
@@ -29,6 +31,7 @@ data = {
         "IMAGE_INDEX_MAX" : 30,
         "IMAGE_INDEX_CD" : 0.03,
         "POSSION_CD" : 0.08,
+        "SUMMON_CD" : -1,
         "SPEED" : (0,2)
     },
 
@@ -38,6 +41,7 @@ data = {
         "IMAGE_INDEX_MAX" : 19,
         "IMAGE_INDEX_CD" : 0.08,
         "POSSION_CD" : 0,
+        "SUMMON_CD" : 8,
         "SPEED" : (0,0)
     }
 

@@ -21,8 +21,7 @@ import image
 backgroundImage = image.Image(PTAT_BACK,0,(0,0),GAME_SIZE)
 #僵尸
 zombieImage = zombiebase.ZombieBase(1,(1100,200))
-#阳光
-sunlight = sunlight.SunLight(2,(280,200))
+
 #豌豆子弹
 peabul = peabullet.Peabullet(0,(300,250))
 
@@ -61,9 +60,6 @@ while 1:
     for sf in sunflowerList:
         sf.update()
         sf.draw(DS)
-
-    sunlight.update()
-    sunlight.draw(DS)
 
     pygame.display.update()
 
